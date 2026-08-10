@@ -1,1 +1,29 @@
+seed: 42
 
+data:
+  n_target_genes: 5127
+  n_train_perturbations: 80
+
+features:
+  n_gene_pcs: 30
+
+pca:
+  n_components: 44
+  svd_solver: randomized
+
+model:
+  hidden_dim: 32
+  n_layers: 3
+  dropout: 0.40
+
+training:
+  batch_size: 16
+  learning_rate: 0.0018
+  weight_decay: 0.000022
+  max_epochs: 450
+
+validation:
+  n_splits: 5
+
+inference:
+  baseline_blend_alpha: 0.30
