@@ -136,6 +136,38 @@ Hyperparameters were explored with **Optuna**.
 
 Because the official scoring metric compares predictions against the average training perturbation baseline, final predictions were also blended with this baseline to improve stability.
 
+                    ┌───────────────┐
+                    │    data.py    │
+                    │ load / delta  │
+                    └───────┬───────┘
+                            │
+                            ▼
+                   ┌─────────────────┐
+                   │   features.py   │
+                   │ scRNA features │
+                   └────────┬────────┘
+                            │
+                            ▼
+                   ┌─────────────────┐
+                   │    model.py     │
+                   │    SmallMLP     │
+                   └────────┬────────┘
+                            │
+                            ▼
+             ┌───────────────────────────┐
+             │         train.py          │
+             │ CV / AMP / scheduler / ES │
+             └─────────────┬─────────────┘
+                           │
+                           ▼
+                  ┌─────────────────┐
+                  │  inference.py   │
+                  │ predict / blend │
+                  │   submission    │
+                  └─────────────────┘
+
+metrics.py ─────────► validation / scoring
+
 ---
 
 ## Repository Structure
